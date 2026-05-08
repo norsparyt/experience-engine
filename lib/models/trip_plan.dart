@@ -62,6 +62,16 @@ class Activity {
   final String description;
   final String estimatedCost;
   final String reasoning;
+  
+  // Phase 2 Geographic and enrichment fields
+  final double? latitude;
+  final double? longitude;
+  final String? placeId;
+  final double? rating;
+  final String? imageUrl;
+  final String? address;
+  final String? openingHours;
+  final String? travelDurationToNext;
 
   Activity({
     required this.time,
@@ -69,6 +79,14 @@ class Activity {
     required this.description,
     required this.estimatedCost,
     required this.reasoning,
+    this.latitude,
+    this.longitude,
+    this.placeId,
+    this.rating,
+    this.imageUrl,
+    this.address,
+    this.openingHours,
+    this.travelDurationToNext,
   });
 
   factory Activity.fromJson(Map<String, dynamic> json) {
@@ -78,6 +96,14 @@ class Activity {
       description: json['description'] ?? '',
       estimatedCost: json['estimated_cost'] ?? '',
       reasoning: json['reasoning'] ?? '',
+      latitude: json['latitude'] != null ? (json['latitude'] as num).toDouble() : null,
+      longitude: json['longitude'] != null ? (json['longitude'] as num).toDouble() : null,
+      placeId: json['placeId'],
+      rating: json['rating'] != null ? (json['rating'] as num).toDouble() : null,
+      imageUrl: json['imageUrl'],
+      address: json['address'],
+      openingHours: json['openingHours'],
+      travelDurationToNext: json['travelDurationToNext'],
     );
   }
 
@@ -88,6 +114,46 @@ class Activity {
       'description': description,
       'estimated_cost': estimatedCost,
       'reasoning': reasoning,
+      'latitude': latitude,
+      'longitude': longitude,
+      'placeId': placeId,
+      'rating': rating,
+      'imageUrl': imageUrl,
+      'address': address,
+      'openingHours': openingHours,
+      'travelDurationToNext': travelDurationToNext,
     };
+  }
+
+  Activity copyWith({
+    String? time,
+    String? title,
+    String? description,
+    String? estimatedCost,
+    String? reasoning,
+    double? latitude,
+    double? longitude,
+    String? placeId,
+    double? rating,
+    String? imageUrl,
+    String? address,
+    String? openingHours,
+    String? travelDurationToNext,
+  }) {
+    return Activity(
+      time: time ?? this.time,
+      title: title ?? this.title,
+      description: description ?? this.description,
+      estimatedCost: estimatedCost ?? this.estimatedCost,
+      reasoning: reasoning ?? this.reasoning,
+      latitude: latitude ?? this.latitude,
+      longitude: longitude ?? this.longitude,
+      placeId: placeId ?? this.placeId,
+      rating: rating ?? this.rating,
+      imageUrl: imageUrl ?? this.imageUrl,
+      address: address ?? this.address,
+      openingHours: openingHours ?? this.openingHours,
+      travelDurationToNext: travelDurationToNext ?? this.travelDurationToNext,
+    );
   }
 }

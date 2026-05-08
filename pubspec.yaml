@@ -38,6 +38,8 @@ dependencies:
   flutter_animate: ^4.5.2
   flutter_riverpod: ^2.5.1
   google_generative_ai: ^0.4.5
+  google_maps_flutter: ^2.11.0
+  http: ^1.2.2
 
 dev_dependencies:
   flutter_test:
