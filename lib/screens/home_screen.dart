@@ -5,7 +5,7 @@ import '../models/destination.dart';
 import '../services/experience_engine.dart';
 import '../widgets/glass_container.dart';
 import 'destination_detail_screen.dart';
-import 'engine_screen.dart';
+import '../features/preferences/preferences_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -101,7 +101,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     onTap: () {
                       Navigator.push(
                         context,
-                        MaterialPageRoute(builder: (_) => const ExperienceEngineScreen()),
+                        MaterialPageRoute(builder: (_) => const PreferencesScreen()),
                       );
                     },
                     child: GlassContainer(
